@@ -39,7 +39,7 @@ const quote_create_post = (req, res) => {
                 details: req.body.details,
                 quote_type: req.body.quote_type,
                 source: req.body.source,
-                value: ontCount
+                value: outCount
             })
 
             quote.save()
