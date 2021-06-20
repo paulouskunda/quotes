@@ -1,0 +1,29 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="create-quote content">
+    <form action="/quotes" method="POST">
+      <label for="author">Quote Author:</label>
+      <input type="text" id="author" name="author" required>
+      <label for="details">Quote Details:</label>
+      <textarea id="details" name="details" required></textarea>
+      <label for="quote_type">Quote Type:</label>
+      <select name="quote_type" id="quote_type">
+
+        <!-- <option value="tech-quotes">Tech Quotes</option> -->
+        <option value="mentalhealth">Mental Health</option>
+        <!-- <option value="science">Science</option> -->
+        <!-- <option value="life-hack">Life Hack</option> -->
+      </select>
+      <label for="source">Quote source:</label>
+      <input type="text" id="source" name="source">
+      <button>Submit</button>
+    </form>
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>
