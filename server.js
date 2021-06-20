@@ -8,8 +8,7 @@ const Quote = require('./models/quotes')
 const fs = require('fs');
 const app = express()
 
-// const dbURI = "mongodb+srv://we_care_user:wecare_user_1234@nodewecarecluster.jl8pq.mongodb.net/initialDb?retryWrites=true&w=majority"
-const dbURI = `mongodb+srv://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@nodewecarecluster.jl8pq.mongodb.net/initialDb?retryWrites=true&w=majority`
+const dbURI = "your_url"
 
 mongoose.connect(dbURI, { userNewParser: true, useUnifiedTopology: true})
         .then(result => app.listen(process.env.PORT || 3012))
