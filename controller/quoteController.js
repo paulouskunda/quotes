@@ -32,7 +32,7 @@ const quote_create_post = (req, res) => {
     var outCount = 0;
     Quote.count()
         .then(count => {
-            outCount = count+1;
+            outCount = count;
             console.log(outCount)
             const quote = new Quote({
                 author: req.body.author,
@@ -81,21 +81,10 @@ const quote_delete = (req, res) => {
 
 
 
-const api_selected_quote = ('/api/quotes', (req, res) => {
-    Quote.findOne()
-         .then(result => {
-             res.status(200).json(result)
-         })
-         .catch(err => {
-             console.log(err)
-         })
-})
-
 module.exports = {
     quote_index,
     quote_details,
     quote_create_get,
     quote_create_post,
-    quote_delete,
-    api_selected_quote
+    quote_delete
 }
