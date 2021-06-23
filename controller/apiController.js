@@ -8,7 +8,10 @@ const api_get_all_quote =  (req, res) => {
         res.status(200).json(result)
     })
     .catch(err => {
-        console.log(err)
+        res.status(404).json({
+            title: "Not Found",
+            message: "No content was found"
+        })
     })
 }
   
@@ -20,7 +23,10 @@ const api_get_one_quote = (req, res) => {
         res.status(200).json(result)
     })
     .catch(err => {
-        console.log(err)
+        res.status(404).json({
+            title: "Not Found",
+            message: "No content was found"
+        })
     })
 } 
   
@@ -28,11 +34,11 @@ const api_delete_quote = (req, res) => {
     const id = req.params.id
     Quote.findByIdAndDelete(id)
         .then(result => {
-            res.status(201).json({ redirect: '/quotes'})
+            res.status(204).json({ title: "Deleted", message: "Content deleted"})
         })
         .catch(err => {
             console.log(err)
-            res.status().json({title: "Error", message: "An error was encountered"})
+            res.status(400).json({title: "Bad Request", message: "An error was encountered"})
         })
   }
   

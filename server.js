@@ -9,12 +9,8 @@ const Quote = require('./models/quotes')
 const fs = require('fs');
 const app = express()
 
-<<<<<<< HEAD
-const dbURI = "your_url"
-=======
 const dbURI = "mongodb+srv://we_care_user:wecare_user_1234@nodewecarecluster.jl8pq.mongodb.net/initialDb?retryWrites=true&w=majority"
 // const dbURI = `mongodb+srv://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@nodewecarecluster.jl8pq.mongodb.net/initialDb?retryWrites=true&w=majority`
->>>>>>> 1b0c3c3... connection
 
 mongoose.connect(dbURI, { userNewParser: true, useUnifiedTopology: true})
         .then(result => app.listen(process.env.PORT || 3009))
@@ -30,11 +26,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(morgan('combined'))
 
-// let quoteData = fs.readFileSync('Quotes.json');  
-// let quotes = JSON.parse(quoteData);  
-// // db.city.insertMany(cities)  using mongo client 
-// Quote.insertMany(quotes)  
-// console.log(quotes); 
+
 
 app.use((req, res, next) => {
     res.locals.path = req.path
