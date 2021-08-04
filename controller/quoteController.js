@@ -56,16 +56,7 @@ const quote_create_post = (req, res) => {
         })
     console.log(outCount)
 
-    //const quote = new Quote(req.body)
-    
-    // quote.save()
-    //      .then(result => {
-    //         console.log(result)
-    //         res.redirect('/quotes')
-    //      })
-    //      .catch(err => {
-    //          console.log(err)
-    //      })
+
 }
 
 const quote_delete = (req, res) => {

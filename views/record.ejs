@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/form.css">
+    <link rel="stylesheet" href="/dashboard.css">
+
+</head>
+
+<body>
+    <div class="page">
+        <aside class="menu">
+            <a href="" class="logo">Logo</a>
+            <a href="/users/dashboard" class="menu-item">
+                <p class="material-icons icon">dashboard</p>
+                <p class="text">Dashboard</p>
+            </a>
+
+
+            <a href="" class="menu-item active">
+                <p class="material-icons icon">touch_app</p>
+                <p class="text">New Article</p>
+            </a>
+            <!-- <a href="" class="menu-item">
+                <p class="material-icons icon">theaters</p>
+                <p class="text">Theaters</p>
+            </a> -->
+        </aside>
+        <section class="main">
+            <h2>New Article</h2>
+
+            <form action="#">
+
+
+
+                <div class="row">
+                    <input type="text" name="articleTitle" id="fancy-text" />
+                    <label for="fancy-text">Article Title</label>
+                </div>
+                <div class="row">
+                    <label for="fancy-text">Category</label>
+                    <input type="text" name="fancy-text" id="fancy-text" />
+                    <select id="fancy-text" name="category">
+                        <option value="Anxiety">Anxiety</option>
+                        <option value="Depression">Depression</option>
+                        <option value="Self-Esteem">Self-Esteem</option>
+                        <option value="Over Coming/Life After">Over Coming/Life After</option>
+                        <option value="Stress">Stress</option>
+                        <option value="Rape/Sexual Abuse Awarness">Rape/Sexual Abuse Awarness</option>
+                        <option value="General Mental Health Awarness">General Mental Health Awarness</option>
+                        <option value="Addictions">Addictions</option>
+                        <option value="You">You *A category focused on bettering oneself* </option>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <textarea name="articleDetails" id="fancy-textarea"></textarea>
+                    <label for="fancy-textarea">Details</label>
+                </div>
+
+                <button type="submit" tabindex="0">Submit</button>
+            </form>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const http = require('http')
 const quotesRoutes = require('./routes/quotesRoutes');
 const apiRoutes = require('./routes/apiRoutes')
+const userRoutes = require('./routes/usersRoutes')
 const Quote = require('./models/quotes')
 const fs = require('fs');
 const app = express()
@@ -48,6 +49,7 @@ app.use('/api', apiRoutes)
   // quotes routes
 app.use('/quotes', quotesRoutes)
 
+app.use('/users', userRoutes)
 
   // 404 page
 app.use((req, res) => {
