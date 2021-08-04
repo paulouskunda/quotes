@@ -4,14 +4,16 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 const http = require('http')
 const quotesRoutes = require('./routes/quotesRoutes');
+const apiRoutes = require('./routes/apiRoutes')
+const userRoutes = require('./routes/usersRoutes')
 const Quote = require('./models/quotes')
 const fs = require('fs');
 const app = express()
 
-const dbURI = "your_url"
+const dbURI = `mongodb+srv://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@nodewecarecluster.jl8pq.mongodb.net/initialDb?retryWrites=true&w=majority`
 
 mongoose.connect(dbURI, { userNewParser: true, useUnifiedTopology: true})
-        .then(result => app.listen(process.env.PORT || 3012))
+        .then(result => app.listen(process.env.PORT || 3009))
         .catch(err => console.log(err))
 
 
@@ -24,47 +26,32 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(morgan('combined'))
 
-// let quoteData = fs.readFileSync('Quotes.json');  
-// let quotes = JSON.parse(quoteData);  
-// // db.city.insertMany(cities)  using mongo client 
-// Quote.insertMany(quotes)  
-// console.log(quotes); 
+
 
 app.use((req, res, next) => {
     res.locals.path = req.path
     next()
 })
 
-// routes 
 
 // routes
 app.get('/', (req, res) => {
-
-    res.redirect('/quotes');
+    res.redirect('/quotes')
 });
 
 
 app.get('/about', (req, res) => {
-    res.render('about', { title: 'About' });
+    res.render('about', { title: 'About' })
   });
 
-  // replace with the count ID
-app.get('/api/:value', (req, res) => {
-      
-      const value = req.params.value
-      Quote.find({value: value})
-      .then(result => {
-          res.status(200).json(result)
-      })
-      .catch(err => {
-          console.log(err)
-      })
-})
+app.use('/api', apiRoutes)
 
   // quotes routes
-app.use('/quotes', quotesRoutes);
-  
+app.use('/quotes', quotesRoutes)
+
+app.use('/users', userRoutes)
+
   // 404 page
 app.use((req, res) => {
-  res.status(404).render('404', { title: '404' });
-});
+  res.status(404).render('404', { title: '404' })
+})
